@@ -1,0 +1,51 @@
+# Python Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+
+# Byte-compiled / Optimized Python Files
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Testing & Linting Caches
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Editor & IDE Directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary & Log Files
+*.log
+tmp/
+scratch/
+
+# Explicitly ensure core project directories and research artifacts are NOT ignored
+!dataset/
+!src/
+!models/
+!explainability/
+!results/
+!backend/
+results_backup/
+# Dataset
+dataset/healthcare-dataset-stroke-data.csv
+

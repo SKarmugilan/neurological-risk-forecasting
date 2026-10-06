@@ -1,0 +1,94 @@
+{
+    "project_title": "Explainable AI on Ensemble Methods for Early Neurological Risk Forecasting",
+    "description": "Trained machine learning models and preprocessing pipelines for early neurological risk forecasting research.",
+    "disclaimer": "This model is a research prototype for early neurological risk exploration and is NOT clinically validated. It must not be used as a medical diagnostic tool.",
+    "training_timestamp_utc": "2026-09-29T19:02:08.117884+00:00",
+    "dataset": {
+        "filepath": "dataset\\healthcare-dataset-stroke-data.csv",
+        "total_samples": 5110,
+        "train_samples": 4088,
+        "test_samples": 1022,
+        "test_size": 0.2,
+        "stratified": true,
+        "random_state": 42,
+        "target_column": "stroke",
+        "target_positive_label": 1,
+        "target_negative_label": 0
+    },
+    "feature_schema": {
+        "numerical_features": [
+            "age",
+            "hypertension",
+            "heart_disease",
+            "avg_glucose_level",
+            "bmi"
+        ],
+        "categorical_features": [
+            "gender",
+            "ever_married",
+            "work_type",
+            "Residence_type",
+            "smoking_status"
+        ],
+        "total_raw_features": 10,
+        "total_preprocessed_features": 21,
+        "preprocessed_feature_names": [
+            "num__age",
+            "num__hypertension",
+            "num__heart_disease",
+            "num__avg_glucose_level",
+            "num__bmi",
+            "cat__gender_Female",
+            "cat__gender_Male",
+            "cat__gender_Other",
+            "cat__ever_married_No",
+            "cat__ever_married_Yes",
+            "cat__work_type_Govt_job",
+            "cat__work_type_Never_worked",
+            "cat__work_type_Private",
+            "cat__work_type_Self-employed",
+            "cat__work_type_children",
+            "cat__Residence_type_Rural",
+            "cat__Residence_type_Urban",
+            "cat__smoking_status_Unknown",
+            "cat__smoking_status_formerly smoked",
+            "cat__smoking_status_never smoked",
+            "cat__smoking_status_smokes"
+        ]
+    },
+    "tuned_xgboost_hyperparameters": {
+        "n_estimators": 200,
+        "max_depth": 4,
+        "learning_rate": 0.1,
+        "subsample": 1.0,
+        "colsample_bytree": 1.0,
+        "min_child_weight": 5,
+        "scale_pos_weight": 19.54,
+        "eval_metric": "logloss",
+        "random_state": 42
+    },
+    "stacking_ensemble_architecture": {
+        "base_estimators": [
+            "Logistic Regression (class_weight='balanced')",
+            "Random Forest (n_estimators=300, class_weight='balanced')",
+            "Tuned XGBoost (PR-AUC optimized, scale_pos_weight=19.54)"
+        ],
+        "meta_learner": "Logistic Regression (max_iter=1000)",
+        "cv_folds": 5,
+        "stack_method": "predict_proba"
+    },
+    "decision_thresholds": {
+        "default_standard": 0.5,
+        "recommended_balanced": 0.15,
+        "recommended_screening": 0.1,
+        "threshold_notes": "At default 0.50 threshold, probability collapse occurs due to extreme class imbalance (sensitivity=0.0). Threshold 0.15 is supported by experimental results providing optimal F1 (0.3600), MCC (0.3375), and balanced sensitivity (0.54) vs specificity (0.925)."
+    },
+    "saved_artifacts": {
+        "preprocessor": "models\\preprocessor.joblib",
+        "logistic_regression": "models\\logistic_regression_pipeline.joblib",
+        "random_forest": "models\\random_forest_pipeline.joblib",
+        "xgboost": "models\\xgboost_pipeline.joblib",
+        "tuned_xgboost": "models\\tuned_xgboost_pipeline.joblib",
+        "stacking_ensemble": "models\\stacking_ensemble_pipeline.joblib"
+    }
+}

@@ -1,0 +1,8 @@
+Perturbation,Probability,Cosine_Similarity,Mean_Absolute_SHAP_Difference
+Age +1 year,0.118741,0.995511,0.013589
+Age -1 year,0.112461,0.992403,0.02064
+BMI +1,0.174315,0.986116,0.027104
+BMI -1,0.235912,0.93879,0.050754
+Glucose +5,0.071934,0.923061,0.050003
+Glucose -5,0.138166,0.995831,0.018738
+Average,,0.972,0.0301

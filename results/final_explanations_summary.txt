@@ -1,0 +1,39 @@
+Model explained: tuned_xgboost (XGBClassifier). Test records: 1022, strokes: 50
+
+Global TreeSHAP (tuned XGBoost), top 6 features by mean |SHAP|:
+  num__age                                 2.7932
+  num__bmi                                 0.9354
+  num__avg_glucose_level                   0.5682
+  num__hypertension                        0.1488
+  cat__smoking_status_Unknown              0.1203
+  cat__ever_married_No                     0.1091
+
+Test record 0 (probability 0.0924, label 0). Top 6 by |SHAP|:
+  feature                                        SHAP   LIME slope   LIME contrib
+  num__bmi                                    -1.9523       0.0145         0.0110
+  num__age                                     0.1521       0.1481         0.1288
+  num__avg_glucose_level                      -0.1350       0.0472        -0.0293
+  cat__Residence_type_Rural                   -0.1344       0.0004         0.0004
+  cat__smoking_status_never smoked            -0.1252      -0.0013        -0.0017
+  cat__smoking_status_smokes                  -0.1095      -0.0004         0.0002
+
+SHAP vs LIME agreement over 250 patients (50 strokes, 200 non-strokes):
+  Spearman of |SHAP| vs |LIME contribution|     mean 0.541  SD 0.126
+  Same top-1 feature                            mean 0.536  SD 0.500
+  Top-3 overlap                                 mean 0.736  SD 0.225
+  Same sign on SHAP's top-5 features            mean 0.695  SD 0.207
+
+LIME against itself (5 seeds, 25 patients): mean pairwise Spearman 0.684 (SD 0.047)
+
+Stability, test record 0: mean cosine 0.9708, mean abs SHAP difference 0.042347
+Stability, 100 patients (0 skipped): mean cosine 0.9496, SD across patients 0.0792, min 0.5440
+Mean cosine by perturbation:
+  Age +1 year    0.9785
+  Age -1 year    0.9891
+  BMI +1         0.9020
+  BMI -1         0.9065
+  Glucose +5     0.9711
+  Glucose -5     0.9505
+Probability shift range over all perturbations: -0.5856 to 0.5792
+
+Ensemble KernelSHAP saved (background 100, nsamples 1000).

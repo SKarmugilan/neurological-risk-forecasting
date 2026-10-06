@@ -1,0 +1,34 @@
+Step 1: out-of-fold probabilities for the stacking ensemble on the TRAINING set ...
+OOF-selected thresholds: best MCC -> 0.045 ; largest threshold with OOF sensitivity >= 0.70 -> 0.070
+  Test set at 0.045 (best MCC on training OOF): sens 0.820 [0.700, 0.920], spec 0.733 [0.704, 0.760], precision 0.136, MCC 0.261, TP 41 FP 260
+  Test set at 0.070 (sensitivity >= 0.70 on training OOF): sens 0.780 [0.660, 0.880], spec 0.807 [0.782, 0.831], precision 0.172, MCC 0.304, TP 39 FP 188
+
+Step 2: test-set discrimination with 95% bootstrap intervals (2000 resamples)
+  LR         ROC-AUC 0.844 [0.784, 0.893]  PR-AUC 0.269 [0.188, 0.382]  Brier 0.1677  ECE 0.2694
+  RF         ROC-AUC 0.779 [0.716, 0.839]  PR-AUC 0.136 [0.104, 0.204]  Brier 0.0552  ECE 0.0455
+  XGB        ROC-AUC 0.818 [0.761, 0.868]  PR-AUC 0.214 [0.148, 0.324]  Brier 0.0908  ECE 0.1270
+  Tuned XGB  ROC-AUC 0.813 [0.756, 0.867]  PR-AUC 0.218 [0.152, 0.326]  Brier 0.0817  ECE 0.1082
+  Stacking   ROC-AUC 0.848 [0.790, 0.899]  PR-AUC 0.263 [0.199, 0.387]  Brier 0.0405  ECE 0.0115
+Paired bootstrap, Stacking minus model (interval containing 0 = no clear difference):
+  vs LR         dAUC +0.004 [-0.006, +0.015]   dPR-AUC -0.005 [-0.067, +0.080]
+  vs RF         dAUC +0.069 [+0.038, +0.100]   dPR-AUC +0.127 [+0.070, +0.221]
+  vs XGB        dAUC +0.030 [+0.006, +0.056]   dPR-AUC +0.049 [-0.015, +0.133]
+  vs Tuned XGB  dAUC +0.035 [+0.011, +0.061]   dPR-AUC +0.046 [-0.008, +0.113]
+
+Step 3: repeated stratified 5-fold CV x 3 repeats on the training set ...
+Cross-validated (mean +/- SD over 15 folds):
+  LR         ROC-AUC 0.837 +/- 0.022   PR-AUC 0.189 +/- 0.043
+  RF         ROC-AUC 0.807 +/- 0.023   PR-AUC 0.152 +/- 0.033
+  Stacking   ROC-AUC 0.841 +/- 0.020   PR-AUC 0.191 +/- 0.041
+  Tuned XGB  ROC-AUC 0.814 +/- 0.023   PR-AUC 0.183 +/- 0.037
+  XGB        ROC-AUC 0.819 +/- 0.026   PR-AUC 0.187 +/- 0.036
+Corrected resampled t-test, Stacking minus model (Nadeau and Bengio):
+  vs LR         roc_auc diff +0.0042  t 1.13  p 0.278
+  vs LR         pr_auc  diff +0.0012  t 0.10  p 0.920
+  vs RF         roc_auc diff +0.0337  t 3.74  p 0.002
+  vs RF         pr_auc  diff +0.0383  t 2.21  p 0.044
+  vs XGB        roc_auc diff +0.0224  t 1.99  p 0.066
+  vs XGB        pr_auc  diff +0.0038  t 0.18  p 0.858
+  vs Tuned XGB  roc_auc diff +0.0273  t 2.71  p 0.017
+  vs Tuned XGB  pr_auc  diff +0.0076  t 0.45  p 0.661
+(8 comparisons were made; a Bonferroni-adjusted threshold is 0.05/8 = 0.00625)

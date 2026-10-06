@@ -1,0 +1,162 @@
+{
+  "explanation_method": "Model-Agnostic KernelSHAP",
+  "model_explained": "StackingClassifier Ensemble",
+  "pipeline_name": "stacking_ensemble",
+  "predicted_stroke_probability": 0.035266001642552926,
+  "base_value": 0.06218109935370727,
+  "feature_contributions": [
+    {
+      "feature": "num__bmi",
+      "contribution": -0.014899,
+      "absolute_contribution": 0.014899,
+      "direction": "decreases_risk"
+    },
+    {
+      "feature": "num__age",
+      "contribution": 0.012878,
+      "absolute_contribution": 0.012878,
+      "direction": "increases_risk"
+    },
+    {
+      "feature": "cat__smoking_status_never smoked",
+      "contribution": -0.007342,
+      "absolute_contribution": 0.007342,
+      "direction": "decreases_risk"
+    },
+    {
+      "feature": "num__avg_glucose_level",
+      "contribution": -0.005395,
+      "absolute_contribution": 0.005395,
+      "direction": "decreases_risk"
+    },
+    {
+      "feature": "cat__Residence_type_Rural",
+      "contribution": -0.003162,
+      "absolute_contribution": 0.003162,
+      "direction": "decreases_risk"
+    },
+    {
+      "feature": "cat__gender_Male",
+      "contribution": -0.002803,
+      "absolute_contribution": 0.002803,
+      "direction": "decreases_risk"
+    },
+    {
+      "feature": "cat__work_type_Private",
+      "contribution": -0.00189,
+      "absolute_contribution": 0.00189,
+      "direction": "decreases_risk"
+    },
+    {
+      "feature": "num__hypertension",
+      "contribution": -0.001795,
+      "absolute_contribution": 0.001795,
+      "direction": "decreases_risk"
+    },
+    {
+      "feature": "cat__work_type_children",
+      "contribution": -0.001476,
+      "absolute_contribution": 0.001476,
+      "direction": "decreases_risk"
+    },
+    {
+      "feature": "cat__ever_married_Yes",
+      "contribution": -0.001031,
+      "absolute_contribution": 0.001031,
+      "direction": "decreases_risk"
+    },
+    {
+      "feature": "num__heart_disease",
+      "contribution": 0.0,
+      "absolute_contribution": 0.0,
+      "direction": "neutral"
+    },
+    {
+      "feature": "cat__gender_Female",
+      "contribution": 0.0,
+      "absolute_contribution": 0.0,
+      "direction": "neutral"
+    },
+    {
+      "feature": "cat__gender_Other",
+      "contribution": 0.0,
+      "absolute_contribution": 0.0,
+      "direction": "neutral"
+    },
+    {
+      "feature": "cat__ever_married_No",
+      "contribution": 0.0,
+      "absolute_contribution": 0.0,
+      "direction": "neutral"
+    },
+    {
+      "feature": "cat__work_type_Govt_job",
+      "contribution": 0.0,
+      "absolute_contribution": 0.0,
+      "direction": "neutral"
+    },
+    {
+      "feature": "cat__work_type_Never_worked",
+      "contribution": 0.0,
+      "absolute_contribution": 0.0,
+      "direction": "neutral"
+    },
+    {
+      "feature": "cat__work_type_Self-employed",
+      "contribution": 0.0,
+      "absolute_contribution": 0.0,
+      "direction": "neutral"
+    },
+    {
+      "feature": "cat__Residence_type_Urban",
+      "contribution": 0.0,
+      "absolute_contribution": 0.0,
+      "direction": "neutral"
+    },
+    {
+      "feature": "cat__smoking_status_Unknown",
+      "contribution": 0.0,
+      "absolute_contribution": 0.0,
+      "direction": "neutral"
+    },
+    {
+      "feature": "cat__smoking_status_formerly smoked",
+      "contribution": 0.0,
+      "absolute_contribution": 0.0,
+      "direction": "neutral"
+    },
+    {
+      "feature": "cat__smoking_status_smokes",
+      "contribution": 0.0,
+      "absolute_contribution": 0.0,
+      "direction": "neutral"
+    }
+  ],
+  "raw_shap_vector": [
+    0.012877817538494027,
+    -0.0017954806374224231,
+    0.0,
+    -0.00539456363000472,
+    -0.014898937440074657,
+    0.0,
+    -0.002802588625922072,
+    0.0,
+    0.0,
+    -0.0010314928339475171,
+    0.0,
+    0.0,
+    -0.0018900505083124317,
+    0.0,
+    -0.0014762519156968346,
+    -0.0031615836390051716,
+    0.0,
+    0.0,
+    0.0,
+    -0.0073419660192625465,
+    0.0
+  ],
+  "computational_settings": {
+    "background_samples": 100,
+    "nsamples": 1000
+  }
+}
